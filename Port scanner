@@ -1,0 +1,16 @@
+import socket
+
+target = input("Введите адресс сайта: ") # Твой локальный адрес
+port = 80 # Порт для проверки (например, веб-сервер)
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.settimeout(2) # Ждем ответ не больше 2 секунд
+
+result = s.connect_ex((target, port))
+
+if result == 0:
+    print(f"Порт {port} ОТКРЫТ")
+else:
+    print(f"Порт {port} закрыт или фильтруется")
+
+s.close()
