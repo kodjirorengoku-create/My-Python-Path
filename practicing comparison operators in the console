@@ -1,0 +1,34 @@
+Today I learned how to practice comparison operators in the console.
+
+a = 15
+b = 20-5
+a == b
+True
+
+a = 7
+b = 81
+a != b
+True
+
+x = 8
+x % 2 == 0 and x % 3 !=0 
+True
+
+y = 3.6
+-2 <= y and 5 >= y
+True
+
+-2 <= y or 5 >= y
+True
+
+-2 >= y and 5 <= y
+False
+
+y <= -2 or y >= 5
+False
+
+x == 7 
+False
+
+x == 8
+True
