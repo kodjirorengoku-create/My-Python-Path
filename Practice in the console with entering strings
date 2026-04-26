@@ -1,0 +1,57 @@
+PyDev console: starting.
+Python 3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)] on win32
+a = "OnePlus"
+print(a)
+OnePlus
+s = 'turuk'
+s
+'turuk'
+a
+'OnePlus'
+len(a)
+7
+len(s)
+5
+stoka = '''Теперь я знаю,'''
+stoka = '''Теперь я знаю, как делать строки'''
+text = '''теперь я умею,
+созодавть строки.
+но еще надо учиться.
+'''
+text
+'теперь я умею,\nсозодавть строки.\nно еще надо учиться.\n'
+print(text)
+теперь я умею,
+созодавть строки.
+но еще надо учиться.
+a = ""
+a = " "
+len(a)
+1
+s1 = "Мне нравится"
+s2 = "учиться"
+s1 + s2
+'Мне нравитсяучиться'
+s1 + " " + s2
+'Мне нравится учиться'
+s1 + str(8)
+'Мне нравится8'
+s1 + ":" + str(3)
+'Мне нравится:3'
+"chmo" * 5
+'chmochmochmochmochmo'
+"tr" in "transformer"
+True
+"Tr" in "transformer"
+False
+a = "hello"
+a == "hello"
+True
+a != "Hello"
+True
+"пен" < "пин"
+True
+ord("f")
+102
+ord("d")
+100
