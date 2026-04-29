@@ -1,0 +1,54 @@
+import subprocess
+import time
+
+def scan_wifi():
+    print("🔍 Сканирую доступные Wi-Fi сети...\n")
+    
+    try:
+        # Команда для Windows
+        result = subprocess.run(['netsh', 'wlan', 'show', 'networks', 'mode=Bssid'], 
+                              capture_output=True, text=True, check=True)
+        
+        output = result.stdout
+        
+        # Разделяем на блоки по сетям
+        networks = output.split('\n\n')
+        
+        print(f"{'SSID':<30} {'Сигнал':<8} {'Канал':<6} {'Безопасность'}")
+        print("-" * 70)
+        
+        for network in networks:
+            if "SSID" in network and "BSSID" in network:
+                lines = network.strip().split('\n')
+                ssid = ""
+                signal = ""
+                channel = ""
+                security = ""
+                
+                for line in lines:
+                    line = line.strip()
+                    if line.startswith("SSID"):
+                        ssid = line.split(":", 1)[1].strip()
+                    elif "Сигнал" in line or "Signal" in line:
+                        signal = line.split(":", 1)[1].strip()
+                    elif "Канал" in line or "Channel" in line:
+                        channel = line.split(":", 1)[1].strip()
+                    elif "Тип шифрования" in line or "Authentication" in line:
+                        security = line.split(":", 1)[1].strip()
+                
+                if ssid:
+                    print(f"{ssid:<30} {signal:<8} {channel:<6} {security}")
+                    
+    except Exception as e:
+        print(f"Ошибка: {e}")
+        print("Убедитесь, что у вас включён Wi-Fi адаптер.")
+
+if __name__ == "__main__":
+    try:
+        while True:
+            scan_wifi()
+            print("\n" + "="*70)
+            print("Сканирование обновится через 8 секунд... (Ctrl + C для выхода)")
+            time.sleep(8)
+    except KeyboardInterrupt:
+        print("\n\nСканер остановлен.")
