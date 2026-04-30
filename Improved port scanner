@@ -1,0 +1,15 @@
+import socket
+
+target = input("IP или сайт: ")
+ports = [21,22,23,80,443,445,3306,8080]
+
+print(f"Сканирую {target}...\n")
+
+for port in ports:
+    sock = socket.socket()
+    sock.settimeout(0.5)
+    if sock.connect_ex((target, port)) == 0:
+        print(f"[+] Порт {port} — ОТКРЫТ")
+    sock.close()
+
+print("Готово!")
