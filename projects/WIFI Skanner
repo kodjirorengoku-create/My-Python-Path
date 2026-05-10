@@ -1,0 +1,19 @@
+import subprocess
+
+
+def scan_wifi_windows():
+    print("Сканирую доступные сети... Пожалуйста, подождите.\n")
+
+    try:
+        # Запускаем системную команду "netsh wlan show networks"
+        # Она выдает список всех доступных Wi-Fi сетей вокруг
+        result = subprocess.check_output(['netsh', 'wlan', 'show', 'networks'])
+
+        # Декодируем результат.
+        decoded_result = result.decode('utf-8', errors='ignore')
+
+        print(decoded_result)
+
+    except Exception as e:
+        print(f"Произошла ошибка: {e}")
+        print("Убедитесь, что Wi-Fi адаптер включен.")
