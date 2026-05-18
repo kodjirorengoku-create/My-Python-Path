@@ -19,6 +19,7 @@
 | Wi-Fi Scanner          | Сканер Wi-Fi сетей                    | Завершён ✅  |
 | File Integrity Monitor | Детектор изменений в файлах на базе SHA-256 (HIDS)| Завершён ✅ |
 | complex-password-generator | Генератор сложных паролей | Завершён ✅ |
+| mouse position tracker | Отслеживает координаты положении мыши | Завершён ✅ |
 
 ### 🛠 Навыки
 - **Python**: основы, модули, менеджеры контекста (`with open`)
